@@ -1,0 +1,26 @@
+package tests;
+
+import base.BaseTest;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.BasePage;
+import pages.CartPage;
+import pages.LoginPage;
+
+public class CartTest extends BaseTest {
+    @Test
+    public void searchBookAndLogin() {
+        BasePage basePage = new BasePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        CartPage cartPage = new CartPage(driver);
+
+        basePage.searchAndAddFirstResultToCart("Sapiens");
+        basePage.goToLogin();
+        // credential provided is a dummy email
+        loginPage.loginAs("insert email", "insert password");
+        basePage.goToCartPage();
+        int quantity = cartPage.getItemQuantity();
+
+        Assert.assertEquals(quantity, 1, "Guess cart is note merged to the main account!");
+    }
+}

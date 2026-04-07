@@ -34,9 +34,13 @@ public class CartPage extends BasePage {
         waitForPreloader();
         String value = "";
 
+        if (driver.findElements(itemQuantity).isEmpty()){
+            return 0;
+        }
+
         try {
             value = wait.until(ExpectedConditions.visibilityOfElementLocated(itemQuantity)).getAttribute("value");
-            return Integer.parseInt(value);
+            return (value == null || value.isEmpty() ? 0 : Integer.parseInt(value));
         } catch (Exception e) {
             throw new RuntimeException("CRITICAL DATA ERROR: Could not parse cart quantity. Raw value found: '" + value + "'");
         }

@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pages.*;
 
 public class CartTest extends BaseTest {
+
     @Test
     public void loginAndAddProductToCart() {
         // Initalize all necessary pages locator
@@ -44,7 +45,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void verifyMergeCart() {
+    public void loginAndVerifyMergeCart() {
         // Initialize all necessary pages locators
         BasePage basePage = new BasePage(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -76,7 +77,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void verifyMergeCartForMultipleItems() {
+    public void loginAndVerifyMergeCartForMultipleItems() {
         // Initialize all necessary pages locators
         BasePage basePage = new BasePage(driver);
         LoginPage loginPage = new LoginPage(driver);

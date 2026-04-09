@@ -18,7 +18,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() throws IOException {
-        // 1. Load config file
+        // Load config file
         prop = new Properties();
         String configPath = System.getProperty("user.dir") + "/src/test/resources/config.properties";
         FileInputStream ip = new FileInputStream(configPath);
